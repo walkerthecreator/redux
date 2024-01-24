@@ -1,40 +1,26 @@
-import { useEffect, useState } from "react"
 import Nav from "./components/Nav"
-import { YOUTUBE_API } from "./utils/constant"
-import axios from "axios"
-import VideoCard from "./components/VideoCard"
+import { Route, Routes } from "react-router-dom"
+import VideoContainer from "./components/VideoContainer"
+import SideBar from "./components/Sidebar"
+import { useSelector } from "react-redux"
+import { sidebarSelector } from "./reducers/sidebar"
 
 function App(){
 
-  const [ result , setResult ] = useState(null)
-
-
-  async function fetchData(){
-    const res = await axios.get(YOUTUBE_API)
-    const data = res.data
-    console.log(data) 
-    setResult(data)
-  }
-
-  useEffect(()=>{
-    fetchData()
-  } , [])
+  const isMenuOpen = useSelector(sidebarSelector)
 
   return <div>
       <Nav></Nav>
-      <div className="flex flex-wrap gap-3 p-3">
+      <div className="w-screen flex gap-10">
 
-        {
-         result?.items?.map((item , index) => {
-          return <VideoCard stats={item?.statistics} videoData={item?.snippet}></VideoCard>
-         })
-        }
-        
+      <SideBar></SideBar>
+      <div className={ isMenuOpen ? "ml-[160px]" : "" }>
+      <Routes>
+        <Route path="/" element={ <VideoContainer /> }></Route>
+      </Routes>
       </div>
 
-      
-
-
+      </div>
 
   </div>
 }
