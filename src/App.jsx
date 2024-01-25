@@ -15,6 +15,7 @@ function App(){
 
       <SideBar></SideBar>
       <div className={ isMenuOpen ? "ml-[160px]" : "" }>
+        
       <Routes>
         <Route path="/" element={ <VideoContainer /> }></Route>
       </Routes>
