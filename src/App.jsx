@@ -4,6 +4,7 @@ import VideoContainer from "./components/VideoContainer"
 import SideBar from "./components/Sidebar"
 import { useSelector } from "react-redux"
 import { sidebarSelector } from "./reducers/sidebar"
+import Watch from "./pages/Watch"
 
 function App(){
 
@@ -14,10 +15,12 @@ function App(){
       <div className="w-screen flex gap-10">
 
       <SideBar></SideBar>
+
       <div className={ isMenuOpen ? "ml-[160px]" : "" }>
-        
+
       <Routes>
         <Route path="/" element={ <VideoContainer /> }></Route>
+        <Route path="/watch/:videoId" element={ <Watch /> } ></Route>
       </Routes>
       </div>
 

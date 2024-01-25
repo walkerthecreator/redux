@@ -1,8 +1,8 @@
 import { viewsFormat } from "../utils/helper"
 
 
-function VideoCard({stats , videoData}){
-    return <div className="w-80  cursor-pointer mb-10">
+function VideoCard({stats , videoData , handleClick , id }){
+    return <div className="w-80  cursor-pointer mb-10" key={id} onClick={ ()=>{  handleClick(id)}  }>
         <img src={videoData?.thumbnails?.medium?.url} alt="" className="rounded-md w-full"/>
 
         <div className="flex  items-center w-full">
