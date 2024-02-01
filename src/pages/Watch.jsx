@@ -32,7 +32,7 @@ function Watch(){
     useEffect(()=>{
         dispatch(closeSidebar())
         fetchSingleWatchVideo()
-        // fetchRecommendations()
+        fetchRecommendations()
     } , [])
 
     return <div  className="flex justify-around mx-20 mt-5 gap-5">

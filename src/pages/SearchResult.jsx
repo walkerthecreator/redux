@@ -7,7 +7,7 @@ import { closeSidebar } from "../reducers/sidebar"
 
 function SearchResult(){
 
-    const [searchParams , setSearchParams ] = useSearchParams()
+    const [searchParams  ] = useSearchParams()
     const [searchResult , setSearchResult] = useState(null) 
 
     const dispatch = useDispatch()
@@ -43,7 +43,7 @@ function SearchResult(){
 
                                 <div className="mt-2 text-xs">
                                     <img src="" alt="" />
-                                    <h3>{item.snippet.channelTitle}</h3>
+                                    <h3 className="text-sm font-medium">{item.snippet.channelTitle}</h3>
                                      <p>{item.snippet.description}</p> 
                                 </div>
                             </div>
