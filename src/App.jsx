@@ -11,9 +11,9 @@ function App(){
 
   const isMenuOpen = useSelector(sidebarSelector)
 
-  return <div>
+  return <div className="w-screen  h-screen overflow-hidden">
       <Nav></Nav>
-      <div className="w-screen flex gap-10">
+      <div className="flex gap-10">
 
       <SideBar></SideBar>
 

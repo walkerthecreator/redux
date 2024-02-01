@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useDispatch } from "react-redux"
 import { closeSidebar } from "../reducers/sidebar"
+import { add } from "../reducers/recommend"
 
 function SearchResult(){
 
@@ -17,12 +18,11 @@ function SearchResult(){
         navigate(`/watch/${id}`)
     }
 
-
     async function fetchQuery(){
         const response = await axios.get(YOUTUBE_SEARCH_VIDEO_WITH_QUERY_API + searchParams.get("query"))
         const data = response.data
-        console.log(data.items)
         setSearchResult(data.items)
+        dispatch(add(data.items))
     }
 
     useEffect(()=>{
